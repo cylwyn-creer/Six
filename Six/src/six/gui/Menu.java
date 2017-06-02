@@ -19,6 +19,7 @@ public class Menu extends JPanel {
 	
 	public static ButtonLabel[] buttonLabel = new ButtonLabel[15];
 	public static JLabel[] label = new JLabel[10];
+	public static JLabel loading;
 	public static String[] string = {"src/images/avatar1.png","src/images/avatar2.png"
 			,"src/images/miniBlackTile.png","src/images/miniRedTile.png"};
 	public static JPanel panel,board, upper, lower, center;

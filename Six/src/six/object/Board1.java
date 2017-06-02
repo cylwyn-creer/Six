@@ -18,6 +18,7 @@ import java.util.Queue;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import six.gui.Menu;
@@ -119,7 +120,7 @@ public class Board1 extends JPanel implements Runnable {
 			
 			if(maximize && turn == 2) {
 				
-				//sound.playClick();
+				sound.playClick();
 				
 				bestMove = null;
 				
@@ -132,18 +133,18 @@ public class Board1 extends JPanel implements Runnable {
 					
 				}
 				*/
-				Menu.label[9].setIcon(Menu.loadIcon);
+				Menu.loading = new JLabel(Menu.loadIcon);
+				Menu.loading.setBounds(550,230,90,90);
+				Menu.onePlayerBoard.add(Menu.loading);
+				
 				alphaBeta(currentBoard, 2, maxDepth, Integer.MIN_VALUE, Integer.MAX_VALUE);
 				tileOnPlace(bestMove.x, bestMove.y);
 				
 				maximize = false;
-				Menu.label[9].setIcon(new ImageIcon("src/images/comp1.png"));
-				Menu.label[9].repaint();
-				Menu.label[9].revalidate();
-				revalidate();
-				repaint();
-				Menu.panel.revalidate();
-				Menu.panel.repaint();
+				
+				Menu.onePlayerBoard.remove(Menu.loading);
+				Menu.onePlayerBoard.revalidate();
+				Menu.onePlayerBoard.repaint();
 				
 			}
 			
